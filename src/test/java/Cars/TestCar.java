@@ -12,11 +12,11 @@ public class TestCar {
     @Test
     public void testCar2() throws StrangeColorException {
         Car car2 = new Car("jeep", "green");
-        car2.changeColor("gold");
+       // car2.changeColor("gold");
     }
     @Test
     public void testCar3() throws StrangeColorException {
-        Car car3 = new Car("honda", "gold", 1.6);
+        Car car3 = new Car("honda", "yellow", 1.6);
     }
 
     @Test

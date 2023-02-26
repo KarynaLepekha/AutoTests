@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CalculationTest">
+    <listeners>
+        <listener class-name="Calculation.Listener"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="C:/Users/Karyna_Lepekha/Desktop/Automation/Automation course/TestNG">
+        <classes>
+            <class name="Calculation.CalculationTest"/>
+                <parameter name="finishing" value="All tests are passed" />
+        </classes>
+    </test>
+</suite>
