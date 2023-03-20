@@ -7,11 +7,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Test;
+
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class CreateTestDriver {
-    public static void main(String[] args) {
+
+    @Test
+    public void rozetka() {
         //System.setProperty("webdriver.chrome.driver", "chromedriver.exe"); another way than below
         WebDriverManager.chromedriver().arch64().setup();
         WebDriver driver = new ChromeDriver();
@@ -28,6 +32,7 @@ public class CreateTestDriver {
         addToCart.click();
         WebElement closeCartModal = driver.findElement(By.xpath("//button[@aria-label = 'Закрити модальне вікно']"));
         closeCartModal.click();
+        //search.sendKeys("FREGGIA", Keys.ENTER);
         WebElement searchOnPDP = driver.findElement(By.name("search"));
         searchOnPDP.sendKeys("FREGGIA", Keys.ENTER);
         WebElement thirdProduct2 = driver.findElement(By.xpath("(//span[@class = 'goods-tile__title'])[3]"));
@@ -36,6 +41,8 @@ public class CreateTestDriver {
         addToCart2.click();
         List<WebElement> productsInCart = driver.findElements(By.xpath("//ul[@class= 'cart-list']//li[@class= 'cart-list__item ng-star-inserted']"));
         Assert.assertEquals(productsInCart.toArray().length, 2);
-        driver.quit();
+        Assert.assertTrue(productsInCart.get(0).getText().contains("Acer Aspire"));
+        Assert.assertTrue(productsInCart.get(1).getText().contains("FREGGIA"));
+        //driver.quit();
     }
 }
