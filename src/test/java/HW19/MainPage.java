@@ -11,8 +11,8 @@ public class MainPage extends BasePage{
     @FindBy(xpath = "//button[contains(text(), 'Знайти')]")
     private WebElement searchButton;
 
-    public void productSearch() {
-        search.sendKeys(Data.getProducts());
+    public void productSearch(String product) {
+        search.sendKeys(product);
     }
 
     public SearchResultsPage clickSearchButton() {

@@ -13,27 +13,18 @@ public class AddProductsToBasketTest extends BaseTest{
     public void rozetka() {
 
         mainPage = openRozetka();
-        //search first product and add it to the cart
-        mainPage.productSearch();
-        searchResultsPage = mainPage.clickSearchButton();
-        productPage = searchResultsPage.thirdProductOnThePage();
-        cartModal = productPage.addToCart();
-        sleepALittleBit(2);
-        cartModal.closeCartModal();
-        //search second product and add it to the cart
-        mainPage.productSearch();
-        mainPage.clickSearchButton();
-        productPage = searchResultsPage.thirdProductOnThePage();
-        cartModal = productPage.addToCart();
-        sleepALittleBit(2);
-        cartModal.closeCartModal();
-        //search third product and add it to the cart
-        mainPage.productSearch();
-        mainPage.clickSearchButton();
-        searchResultsPage.thirdProductOnThePage();
-        productPage.addToCart();
+        for (String product : Data.getProducts()) {
+            mainPage.productSearch(product);
+            searchResultsPage = mainPage.clickSearchButton();
+            productPage = searchResultsPage.thirdProductOnThePage();
+            cartModal = productPage.addToCart();
+            sleepALittleBit(2);
+            cartModal.closeCartModal();
+        }
         //Verify the amount of products in the cart is correct
-        Assert.assertEquals(cartModal.getProductsInCart().toArray().length, 3);
+        sleepALittleBit(2);
+        productPage.openCart();
+        Assert.assertEquals(cartModal.getProductsInCart().toArray().length, Data.getProducts().length);
 
     }
 }
