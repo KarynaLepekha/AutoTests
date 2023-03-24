@@ -11,7 +11,7 @@ public class Data {
     public static String[] getProducts(){
     Properties props = new Properties();
         try {
-        FileInputStream input = new FileInputStream("src/main/resources/products.properties");
+        FileInputStream input = new FileInputStream("src/main/resources/data.properties");
         props.load(input);
         input.close();
     } catch (
