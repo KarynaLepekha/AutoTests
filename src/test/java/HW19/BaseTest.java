@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -24,20 +23,19 @@ public class BaseTest {
         options.addArguments("disable-notifications");
         options.addArguments("excludeSwitches", "enable-automation");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     @AfterClass
     public void closeBrowser(){
-        sleepALittleBit(2);
+        //sleepALittleBit(2);
         driver.quit();
     }
 
-    public void sleepALittleBit(int second) {
-        try {
-            Thread.sleep(second * 1000L);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public void sleepALittleBit(int second) {
+//        try {
+//            Thread.sleep(second * 1000L);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }
 
