@@ -2,10 +2,7 @@ package HW22_RestAssured;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
 import org.testng.annotations.Test;
-
-import java.util.Collections;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
